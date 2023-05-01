@@ -28,8 +28,14 @@ class O_image {
 var o_data = {
     n_trn_x_nor_slider: .5, 
     a_o_image: [
-        new O_image('./img-modified.jpg'),
-        new O_image('./img-original.jpg'),
+        new O_image(
+            "https://codyhouse.co/demo/image-comparison-slider/img/img-modified.jpg",
+            //'./img-modified.jpg'
+            ),
+        new O_image(
+            "https://codyhouse.co/demo/image-comparison-slider/img/img-original.jpg",
+            //'./img-original.jpg'
+            ),
     ]
 };
 
