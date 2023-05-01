@@ -234,7 +234,8 @@ let f_add_css = function(
 
 f_add_css(
     document, 
-    './pico.min.css'
+    // './pico.min.css', 
+    'https://unpkg.com/@picocss/pico@1.*/css/pico.min.css'
 )
 f_add_css(
     document, 
