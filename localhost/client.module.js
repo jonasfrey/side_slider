@@ -82,7 +82,7 @@ o_js__a_o_image = {
                 'display: flex',
                 'flex-direction: row',
                 'height: 100vh',
-                `display: ${((o_data.b_display_gui) ? 'block' : 'none')}`
+                `display: ${((o_data.b_display_gui) ? 'flex' : 'none')}`
             ].join(";"),
             a_o: [
                 ...o_data.a_o_image.map(
@@ -219,18 +219,6 @@ var o_js = {
                 "top: 50%;",
                 "left: 0;",
             ].join(";")
-        }, 
-        {
-            style: [
-                "position: absolute;",
-                "bottom: 0;",
-                "left: 0;",
-            ].join(";"),
-            s_tag: "button",
-            innerText: 'Toggle GUI',  
-            onclick: function(){
-                alert("hasdf")
-            }
         }, 
         {
             style: [
