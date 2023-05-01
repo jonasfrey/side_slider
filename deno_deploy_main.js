@@ -48,6 +48,7 @@ class O_image {
     }
 }
 var o_data = {
+    b_display_gui: true, 
     n_trn_x_nor_slider: .5, 
     a_o_image: [
         new O_image(
@@ -103,6 +104,7 @@ o_js__a_o_image = {
                 'display: flex',
                 'flex-direction: row',
                 'height: 100vh',
+                \`display: \${((o_data.b_display_gui) ? 'block' : 'none')}\`
             ].join(";"),
             a_o: [
                 ...o_data.a_o_image.map(
@@ -150,6 +152,7 @@ o_js__a_o_image = {
 }
 o_js__a_o_image_2 = {
     f_o_js: function(){
+        console.log(o_data.b_display_gui)
         return {
             style: [
                 'position: absolute', 
@@ -157,7 +160,8 @@ o_js__a_o_image_2 = {
                 'top: 0', 
                 'width: 100%', 
                 'height: 100%', 
-                'z-index:-1'
+                'z-index:-1',
+                // \`display: \${((o_data.b_display_gui) ? 'block' : 'none')}\`
             ].join(";"),
             a_o: [
                 ...o_data.a_o_image.map(
@@ -212,6 +216,7 @@ o_js__a_o_image_2 = {
 
 
 var o_js = {
+    class: 'main',
     style: [
         'position: relative', 
     ].join(";"),
@@ -219,7 +224,8 @@ var o_js = {
         o_js__a_o_image, 
         o_js__a_o_image_2,
         {
-            s_tag: 'input', 
+            s_tag: 'input',
+            class: 'range', 
             type: "range", 
             min: 0, 
             max: 1., 
@@ -235,6 +241,33 @@ var o_js = {
                 "top: 50%;",
                 "left: 0;",
             ].join(";")
+        }, 
+        {
+            style: [
+                "position: absolute;",
+                "bottom: 0;",
+                "left: 0;",
+            ].join(";"),
+            s_tag: "button",
+            innerText: 'Toggle GUI',  
+            onclick: function(){
+                alert("hasdf")
+            }
+        }, 
+        {
+            style: [
+                "position: absolute;",
+                "bottom: 0;",
+                "left: 0;",
+            ].join(";"),
+            s_tag: "button",
+            innerText: 'Toggle GUI',  
+            onclick: function(){
+                o_data.b_display_gui = ! o_data.b_display_gui
+                // o_js__a_o_image_2._f_render();
+                o_js__a_o_image._f_render();
+                
+            }
         }
     ]
 }
@@ -273,6 +306,13 @@ f_add_css(
         margin:0;
         padding:0;
     }
+    #main, .main{
+        min-height: 100vh;
+        min-width: 100vw;
+    }
+    input.range[type=range]::-webkit-slider-runnable-track {
+        background:transparent;
+        }
     \`   
 )
 var o_html = f_o_html_from_o_js(o_js);
